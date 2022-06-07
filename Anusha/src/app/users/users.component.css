@@ -1,0 +1,35 @@
+view {}
+
+table {
+    width: 100%;
+    background: #fff;
+}
+
+img {
+    border-radius: 40px;
+}
+
+.mat-header-cell {
+    background: #ccc
+}
+
+.buttons button {
+    background: none;
+    border: none;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.add_button {
+    background: blue;
+    color: #fff;
+    padding: 7px 40px;
+    float: right;
+    margin: 20px 0;
+    border: none;
+    border-radius: 20px;
+}

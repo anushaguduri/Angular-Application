@@ -1,0 +1,40 @@
+<div class="view">
+    <table mat-table #mytable [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> S No </th>
+            <td mat-cell *matCellDef="let element; let i=index;" class="tableSNoData">
+                {{ (paginatorRef.pageIndex * paginatorRef.pageSize) + (i+ 1) }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>
+                <!-- <mat-form-field appearance="outline">
+                    <mat-label> Name </mat-label>
+                    <input matInput autocomplete="off" type="text" (ngModelChange)="this.filter.next($event)"
+                        [(ngModel)]="search.name" appOnlyLetters maxlength="32">
+                </mat-form-field> -->
+                Name
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>
+                Status
+                <!-- <mat-form-field appearance="outline">
+                    <mat-label> Status </mat-label>
+                    <input matInput autocomplete="off" type="text" (ngModelChange)="this.filter.next($event)"
+                        [(ngModel)]="search.status" appOnlyLetters maxlength="32">
+                </mat-form-field> -->
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+<div class="pagination bg-white">
+    <mat-paginator #paginatorRef [length]="tableLength" [pageSize]="pageSize" [pageIndex]="pageIndex"
+        [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageChanged($event)" aria-label="Select page"
+        [showFirstLastButtons]="true">
+    </mat-paginator>
+</div>
